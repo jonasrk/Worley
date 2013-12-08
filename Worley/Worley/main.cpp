@@ -13,7 +13,7 @@
 using namespace std;
 
 /*****************************************FILENAME DEFINITION***/
-const char oname[16]="test.bmp";
+const char oname[16]="output.bmp";
 
 /*******************************************STRUCT DEFINITION***/
 struct color{
@@ -52,9 +52,6 @@ float quadratic(float x1, float y1, float x2, float y2);
 int main(int argc, const char* argv[])
 {
     
-    #pragma omp parallel
-    printf("Hello from thread %d, nthreads %d\n", omp_get_thread_num(), omp_get_num_threads());
-    
     stringstream hValue;
     hValue << argv[1];
     
@@ -70,7 +67,9 @@ int main(int argc, const char* argv[])
 	time_t beginning = time(NULL),//these two are used to time our algorithm
     end;
     
-	srand((unsigned)beginning);
+//	srand((unsigned)beginning);
+    
+    srand(4);
     
 	int i,j,k;
     
@@ -119,24 +118,32 @@ color lerp(color c1, color c2, float value){
 
 void fillMap(float* map, float &min, float &max)
 {
-    //set up some variables
-	
-	int	i,//iterator
-    x,y,//location variables
-    octaves = 8;//octaves (levels of detail or number of passes)
-	
-	float gain = 0.65f, //modifier for the amplitude
-    lacunarity = 2.0f, //modifier for the frequency
-    total,frequency,amplitude,offset; //used for calculations
-	
-	min=10000.0f;
-	max=0.0f;//for averaging
+
 	
     //get started
-	for (x=0;x<hgrid;++x)
+    #pragma omp parallel for
+	for (int x=0;x<hgrid;++x)
 	{
+        
+        //set up some variables
+        
+        int	i,//iterator
+        y,//location variables
+        octaves = 8;//octaves (levels of detail or number of passes)
+        
+        float gain = 0.65f, //modifier for the amplitude
+        lacunarity = 2.0f, //modifier for the frequency
+        total,frequency,amplitude,offset; //used for calculations
+        
+        min=10000.0f;
+        max=0.0f;//for averaging
+        
+        
 		for (y=0;y<vgrid;++y)
 		{
+            
+            
+            
 			//for each pixel, get the value
 			total = 0.0f;
 			frequency = 1.0f/(float)hgrid;
@@ -153,6 +160,7 @@ void fillMap(float* map, float &min, float &max)
 			}
 			
 			//now that we have the value, put it in
+           
 			map[x + y * hgrid] = total;
 			
 			//just do some minor calculations while we're here anyway
@@ -351,7 +359,7 @@ void printPage(time_t beginning, time_t end)
     <<"<html><head><title>FTG Page</title></head>\n"
     <<"<body>\n"
     <<"<h2>Fractal Terrain Generator Page</h2>\n"
-    <<"<img src=\"test.bmp\" /><br />\n"
+    <<"<img src=\"output.bmp\" /><br />\n"
     <<"This took " << timeTaken << " seconds to create.<br />\n"
     <<"</body>\n"
     <<"</html>\n";
