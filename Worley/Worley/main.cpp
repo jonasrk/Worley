@@ -6,6 +6,9 @@
 #include <ctime>
 #include <cfloat>
 
+#include <iostream>
+#include <sstream>
+
 using namespace std;
 
 /*****************************************FILENAME DEFINITION***/
@@ -23,9 +26,8 @@ struct color{
 	}
 };
 
-/********************************************SIZE DEFINITIONS***/
-const unsigned hgrid = 500,//x dimension of the grid (can be anything >= 1)
-vgrid = hgrid;//y dimension of the grid (can be anything >= 1 (hgrid and vgrid can differ); I only do this to make a square image)
+unsigned int hgrid;
+    unsigned int vgrid;
 
 /*********************************************SEED DEFINITION***/
 int permutations[256];
@@ -46,8 +48,21 @@ float chebychev(float x1, float y1, float x2, float y2);
 float quadratic(float x1, float y1, float x2, float y2);
 
 /********************************************************MAIN***/
-int main()
+int main(int argc, const char* argv[])
 {
+    
+    stringstream hValue;
+    hValue << argv[1];
+    
+    
+    hValue >> hgrid;
+    
+    stringstream vValue;
+    vValue << argv[1];
+    
+
+    vValue >> vgrid;
+    
 	time_t beginning = time(NULL),//these two are used to time our algorithm
     end;
     
