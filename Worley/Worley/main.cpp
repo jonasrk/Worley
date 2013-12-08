@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <omp.h>
 
 using namespace std;
 
@@ -50,6 +51,9 @@ float quadratic(float x1, float y1, float x2, float y2);
 /********************************************************MAIN***/
 int main(int argc, const char* argv[])
 {
+    
+    #pragma omp parallel
+    printf("Hello from thread %d, nthreads %d\n", omp_get_thread_num(), omp_get_num_threads());
     
     stringstream hValue;
     hValue << argv[1];
