@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B410731A-7A51-4B28-A939-B6EE85BE5048</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Worley</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EDA2CC6E-CA7F-4066-8FCF-F1A8C27C45BF</key>
+		<string>https://github.com/jonasrk/Worley.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Worley/Worley.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EDA2CC6E-CA7F-4066-8FCF-F1A8C27C45BF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jonasrk/Worley.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EDA2CC6E-CA7F-4066-8FCF-F1A8C27C45BF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EDA2CC6E-CA7F-4066-8FCF-F1A8C27C45BF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Worley</string>
+		</dict>
+	</array>
+</dict>
+</plist>
